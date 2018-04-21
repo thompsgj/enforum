@@ -1,0 +1,26 @@
+{
+  "name": "enforum",
+  "version": "1.0.0",
+  "description": "A forum based on educational research",
+  "main": "./bin/www",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular-css": "^1.0.8",
+    "assert": "^1.4.1",
+    "asynch": "^0.5.2",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "monk": "^6.0.5",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.14.11",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.4.5",
+    "uglify-js": "^2.4.15"
+  }
+}

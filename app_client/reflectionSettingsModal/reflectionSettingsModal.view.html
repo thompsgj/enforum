@@ -1,0 +1,87 @@
+<div class="settingsContainer section">
+	<div class="modal-header section-head">
+		Test Forum 1 Reflection Activity Settings
+		<button type="button" ng-click="vm.modal.close()" class="close">Close</button>
+	</div>
+	
+	<form class="form-horizontal modal-body" role="form" method="POST" ng-submit="submit()">
+		<div>
+			<!-- Toggle Reflection Activities
+			<div class="section-head">
+				<span class="text-head">Reflective Activity Options</span>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-7 checkbox">
+					<label class="form-check-label" id="">
+						<input type="checkbox" class="form-check-input" id="">Submission Checklist
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-7 checkbox">
+					<label class="form-check-label" id="">
+						<input type="checkbox" class="form-check-input" id="">Reflective Writing
+					</label>
+				</div>
+			</div>
+			-->
+			
+			<!-- Submission Checklist Settings -->
+			<div class="section-head">
+				<span class="text-head">Submission Checklist Settings</span>
+			</div>
+
+			<div class="form-group">
+				<label for="checklist-criteria-one" class="control-label col-sm-3" id="name-label">Criteria One</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control col-5" id="name" aria-describedby="name-label" name="subCheck[]">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="checklist-criteria-two" class="control-label col-sm-3" id="name-label">Criteria Two</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control col-5" id="name" aria-describedby="name-label" name="subCheck[]">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="checklist-criteria-three" class="control-label col-sm-3" id="name-label">Criteria Three</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control col-5" id="name" aria-describedby="name-label" name="subCheck[]">
+				</div>
+			</div>
+
+			<!-- Social Activity Settings -->
+			<div class="section-head">
+				<span class="text-head">Social Activity Settings</span>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" id="reflection-prompt-label" for="reflection-prompt">Reflection Prompt</label>
+				<div>
+					<textarea require class="form-control" id="reflection-prompt" aria-describedby="reflection-prompt-label" row="5" cols="40"></textarea>
+				</div>
+			</div>
+
+			<div class="submission modal-footer">
+				<button type="button" class="btn btn-default">Submit</button>
+				<button type="button" ng-click="vm.modal.cancel()" class="btn btn-default">Cancel</button>
+			</div>
+
+		</div>
+<!-- End of Form and Div -->
+	</form>
+</div>
+<!-- OLD MATERIAL NEEDING REBUILD -->
+	<!--  This makes the checkbox appear after the label.
+				<label class="col-2 form-check-label" id="reflective-writing-toggle-label" for="reflective-writing-toggle">Reflective Activities</label>
+				<input type="checkbox" class="form-check-input" id="reflective-writing-toggle" aria-describedby="reflective-writing-toggle-label"></input>
+	-->
+<!-- SUBMISSION CHECKLIST SETTINGS -->
+	<!-- Helpful resources
+		https://stackoverflow.com/questions/34532871/add-multiple-fields-to-form
+		https://stackoverflow.com/questions/19434912/allow-the-user-to-add-form-input-fields-why-is-append-only-working-once
+		-->
+	<!-- Peer Evaluation Prompt -->

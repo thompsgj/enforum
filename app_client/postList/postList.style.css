@@ -1,0 +1,39 @@
+/* Post List */
+	.post {
+		background: #ddddc2;
+		/* rgb(221, 221, 194)*/
+		min-height: 75px;
+		width: 500px;
+		margin-bottom: 5px;
+	}
+	.image {
+		float: left;
+		background-color: red;
+	}
+	.contents {
+		clear: right;
+		height: 50px;
+	}
+	.title {
+		font-size: 25px
+	}
+	.buttons {
+		float: right;
+		height: 25px;
+		clear: right;
+	}
+	.replyButton {
+		float: right;
+		height:100%;
+		width: 60px;
+		text-align: center;
+		background-color: #8B86F5;
+		text-align: center;
+	}
+	.deleteButton {
+		float: right;
+		height:100%;
+		background-color: #C77DFB;
+		width: 55px;
+		text-align: center;
+	}

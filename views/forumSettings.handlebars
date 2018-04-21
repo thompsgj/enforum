@@ -1,0 +1,263 @@
+{{#section 'css'}}
+.settingsContainer {
+	width: 500px;
+	margin: auto;
+}
+label {
+	background-color: orange;
+}
+.section-head {
+	background-color: #343a40;
+	height: 30px;
+}
+.text-head {
+	color: white
+}
+.section {
+	background-color: #ddddc2;
+	overflow: hidden;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	margin-bottom: 10px;
+}
+{{/section}}
+
+<div class="settingsContainer">
+	<div class="title">
+		Test Forum 1 Settings
+	</div>
+
+	<form class="form-horizontal" role="form" method="POST">
+		<div class="section">
+			<div class="section-head">
+				<span class="text-head">General</span>
+			</div>
+			{{! Assignment Name}}
+			<div class="form-group">
+				<label for="name" class="col-form-label" id="name-label">Assignment Name</label><br>
+				<div>
+					<input type="text" class="form-control col-5" id="name" aria-describedby="name-label" name="name">
+				</div>
+			</div>
+
+			{{! Task Description }}
+			<div class="form-group">
+				<label class="col-form-label" id="description-label" for="description">Task Description</label>
+				<div>
+					<textarea require class="form-control" id="description" aria-describedby="description-label"></textarea>
+				</div>
+			</div>
+
+			<div class="section-head">
+				<span class="text-head">Grading</span>
+			</div>
+			<div class="form-group row">
+				{{! Grade Method Selection }}
+				<label class="col-3 col-form-label" id="grade-method-label" for="grade-method">Score Method</label>
+				<div class="col-3" id="grade-method">
+					<select class="custom-select">
+						<option value="1">Sum</option>
+						<option value="2">Average</option>
+						<!--OLD IDs <input class="form-control" id="grade-method" aria-describedby="grade-method-label"></input>-->
+					</select>
+				</div>
+			</div>
+			{{! Grade Total }}
+			<div class="form-group row">
+				<label class="col-3 col-form-label" id="total-points-label" for="total-points">Grade Total</label>
+				<div>
+					<input type="text" class="form-control" id="total-points" aria-describedby="total-points-label"></input>
+				</div>
+			</div>
+
+			<div class="section-head">
+				<span class="text-head">Advanced Task</span>
+			</div>
+
+			{{! Peer Grading Toggle }}
+			<div class="form-check">
+				<label class="form-check-label" id="peer-grading-label">
+					<input type="checkbox" class="form-check-input" id="peer-grading">Peer Evaluation
+				</label>
+			</div>
+
+
+			{{! Reflective Task Toggle }}
+			<div class="form-check">
+				<label class="form-check-label" id="reflection-toggle-label">
+					<input type="checkbox" class="form-check-input" id="reflection-toggle">Reflective Task
+				</label>
+			</div>
+
+			<div class="submission">
+				<button>Submit</button>
+			</div>
+		</div>
+
+
+
+
+
+
+		{{! Date Restrictions }}
+		<div class="section">
+			<div class="section-head">
+				<span class="text-head">Date Restrictions</span>
+			</div>
+				Open Date Placeholder
+				Close Date Placeholder
+		</div>
+
+		{{! Reflection }}
+		<div class="section">
+			<div class="section-head">
+				<span class="text-head">Reflective Activities</span>
+			</div>
+			<div class="form-check">
+				{{! Checklist Reflection Toggle }}
+				<label class="form-check-label" id="checklist-toggle">
+				<input type="checkbox" class="form-check-input" id="checklist-reflection">Submission Checklist
+				</label>
+			</div>
+
+				{{! Reflective Writing Toggle }}
+			<div class="form-check">
+				<label class="form-check-label" id="reflective-writing-toggle-label" for="reflective-writing-toggle">
+				<input type="checkbox" class="form-check-input" id="reflective-writing-toggle" aria-describedby="reflective-writing-toggle-label">Reflective Writing
+				</label>
+			<!--  This makes the checkbox appear after the label.
+				<label class="col-2 form-check-label" id="reflective-writing-toggle-label" for="reflective-writing-toggle">Reflective Activities</label>
+				<input type="checkbox" class="form-check-input" id="reflective-writing-toggle" aria-describedby="reflective-writing-toggle-label"></input>
+			-->
+			</div>
+		</div>
+
+
+		{{! Submission Checklist }}
+
+		<!-- Helpful resources
+		https://stackoverflow.com/questions/34532871/add-multiple-fields-to-form
+		https://stackoverflow.com/questions/19434912/allow-the-user-to-add-form-input-fields-why-is-append-only-working-once
+		-->
+
+		<div class="section">
+			<div class="section-head">
+				<span class="text-head">Submission Checklist Settings</span>
+			</div>
+
+			<label class="form-label" id="submission-checklist-header">Reflection Criteria</label>
+			<div class="form-group row">
+				<label class="col-2 form-label" id="criteria-one-label" for="criteria-one">One</label>
+				<input type="type" class="form-control col-7" id="criteria-one" aria-describedby="criteria-one-label" name=subCheck[]></input>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-2 form-label" id="criteria-two-label" for="criteria-two">Two</label>
+				<input type="type" class="form-control col-7" id="criteria-two" aria-describedby="criteria-two-label" name=subCheck[]></input>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-2 form-label" id="criteria-three-label" for="criteria-three">Three</label>
+				<input type="type" class="form-control col-7" id="criteria-three" aria-describedby="criteria-three-label" name=subCheck[]></input>
+			</div>
+
+		</div>
+
+
+		{{! Reflective Writing Prompt }}
+		<div class="section">
+			<div class="section-head">
+				<span class="text-head">Social</span>
+			</div>
+
+			{{! Peer Evaluation Prompt }}
+			<div class="form-group">
+				<label class="col-form-label" id="reflection-prompt-label" for="reflection-prompt">Reflection Prompt</label>
+				<div>
+					<textarea class="form-control" id="reflection-prompt" aria-describedby="reflection-prompt-label" rows="5" cols="40"></textarea>
+				</div>
+			</div>
+		</div>
+
+
+		{{! Social }}
+		<div class="section">
+			<div class="section-head">
+				<span class="text-head">Social</span>
+			</div>
+
+			{{! Peer Evaluators Number }}
+			<div class="form-group">
+				<label class="col-form-label" id="peer-evaluators-label" for="peer-evalators">Minimum Peer Evaluations</label>
+				<div>
+					<input type="text" class="form-control" id="peer-evalators" aria-describedby="peer-evaluators-label"></input>
+				</div>
+			</div>
+
+			{{! Peer Evaluation Prompt }}
+			<div class="form-group">
+				<label class="col-form-label" id="peer-evaluation-prompt-label" for="peer-evaluation-prompt">Peer Evaluation Prompt</label>
+				<div>
+					<textarea class="form-control" id="peer-evaluation-prompt" aria-describedby="peer-evaluation-prompt-label" rows="5" cols="40"></textarea>
+				</div>
+			</div>
+		</div>
+
+		{{! Score Sub-total Settings }}
+		<div class="section">
+			<div class="section-head">
+				<span class="text-head">Point Subtotals</span>
+			</div>
+			<div>
+				{{! Post Sub-total Setting }}
+				<div class="form-group row">
+					<input type="checkbox" class="grade-subtotal-option">
+						<label class="col-3 col-form-label" id="post-score-label" for="post-score">Post</label>
+						<div>
+							<input class="form-control" id="post-score" aria-describedby="post-score-label"></input>
+						</div>
+					</input>
+				</div> 
+				{{! Reply Sub-total Setting }}
+				<div class="form-group row">
+					<input type="checkbox" class="grade-subtotal-option">
+						<label class="col-3 col-form-label" id="reply-score-label" for="reply-score">Replies</label>
+						<div>
+							<input class="form-control" id="reply-score" aria-describedby="reply-score-label"></input>
+						</div>
+					</input>
+				</div>
+
+				{{! Reflection Sub-total Setting }}
+				<div class="form-group row">
+					<input type="checkbox" class="grade-subtotal-option">
+						<label class="col-3 col-form-label" id="reflection-score-label" for="reflection-score">Reflection</label>
+						<div>
+							<input class="form-control" id="reflection-score" aria-describedby="reflection-score-label"></input>
+						</div>
+					</input>
+				</div>
+
+				{{! Self Score Sub-total Setting }}
+				<div class="form-group row">
+					<input type="checkbox" class="grade-subtotal-option">
+						<label class="col-3 col-form-label" id="self-score-label" for="self-score">Self Score</label>
+						<div>
+							<input class="form-control" id="self-score" aria-describedby="self-score-label"></input>
+						</div>
+					</input>
+				</div>
+
+				{{! Peer Score Sub-total Setting }}
+				<div class="form-group row">
+					<input type="checkbox" class="grade-subtotal-option">
+						<label class="col-3 col-form-label"  id="peer-score-label" for="peer-score">Peer Score</label>
+						<div>
+							<input class="form-control" id="peer-score" aria-describedby="peer-score-label"></input>
+						</div>
+					</input>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

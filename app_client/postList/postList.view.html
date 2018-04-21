@@ -1,0 +1,38 @@
+<navigation></navigation>
+<div class="container">
+<div class="pl-postList">
+<div class="pl-post">
+<h3>{{vm.data.settings.name}}</h3>
+	<div class="pl-contents">
+		<span>{{vm.data.settings.description}}</span>
+	</div>
+	<div class="pl-buttons">
+		<div class="pl-deleteButton">
+			Delete
+		</div>
+	</div>
+	<a ng-click="vm.popupSettings()" class="btn btn-default">Add Post</a>
+</div>
+{{vm.data.settings}}
+<!-- START EXTRAS for testing -->
+<h3>DYNAMICALLY CREATED POSTS</h3>
+<div class="posts" ng-repeat="post in vm.data.posts">
+	<div class="pl-post">
+		<div class="pl-image">
+			<img src="https://cdn1.iconfinder.com/data/icons/animals-18/154/cat-seat-skin-body-animal-512.png" width="75px" height="75px" /><br>
+		</div>
+		<div class="pl-contents">
+			<span class="pl-title"><a href="/#post">{{post.title}}</a></span><br>
+			<span>Post Poster</span>
+		</div>
+		<div class="pl-buttons">
+			<div class="pl-deleteButton">
+				Delete
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END EXTRAS for testing -->
+</div>
+</div>
+</div>

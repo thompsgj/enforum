@@ -1,0 +1,31 @@
+				<div class="reflection post">
+					<div class="reflectionSpacer"></div>
+					<div class="reflectionChecklistContainer">
+						<div class="checklistTitle">
+							Assignment Checklist
+						</div>
+						<div>
+							<ul class="checklist">
+								<li>{{content.posts.[0].reflection.checklist.[0]}} <input type="checkbox" checked onclick="this.checked=!this.checked;"></li>
+								<li>{{content.posts.[0].reflection.checklist.[2]}} <input type="checkbox" checked onclick="this.checked=!this.checked;"></li>
+								<li>{{content.posts.[0].reflection.checklist.[4]}} <input type="checkbox" checked onclick="this.checked=!this.checked;"></li>
+							</ul>
+						</div>
+					</div>
+					<div class="studentReflectionContainer">
+						<div class="selfReflectionTitle">
+							Self-reflection Summary
+						</div>
+						<div>
+							{{content.posts.[0].reflection.studentSummary}}
+						</div>
+					</div>
+					<div class="teacherFeedbackContainer">
+						<div class="teacherFeedbackTitle">
+							Teacher Feedback
+						</div>
+						<div class="teacherFeedback">
+							{{content.posts.[0].reflection.teacherFeedback}}
+						</div>
+					</div>
+				</div>

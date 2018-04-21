@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>EnForum</title>
+		
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> -->
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<style>
+		html, body {
+			/*Beautiful color background-color: #072B42; */
+			margin:0px;
+			padding: 0px;
+			height:100%;
+			/*color: white;*/
+			font-family: arial;
+		}
+		#main {
+			/*Beautiful color background-color: #37465c; */
+			background-color: #4e7ac7;
+			/*
+				221,221,194- I like this tan
+				#add5f7- Excellent light blue
+				#4e7ac7- Dull blue
+				#7fb2f0- lighter blue, pops without being bright
+				#35478c- Darker purple, blue
+
+			*/
+			padding: 15px;
+			margin:0px;
+			min-height:100%;
+			overflow:hidden;
+			/*width: 640px;
+			height: 100%;*/
+		}
+		#contents {
+			width:800px;
+			margin:auto;
+		}
+		a {
+			color: white;
+			font-weight: bold;
+			text-decoration: none
+		}
+		a:hover {
+			color: #ED2C43;
+		}
+		input {
+			/*
+			border-color: #999999;
+			height: 25px;
+			margin-bottom: 5px;
+			*/
+		}
+		select {
+			height: 30px;
+			min-width: 50px;
+			margin-bottom: 5px;
+		}
+   		.navbar-collapse.collapse.in { 
+        	display: block!important;
+    	}
+		.container {
+			width: 100%;
+		}
+		.filtersContainer {
+			background-color: #543B30;
+		}
+		.pageContent {
+		}
+
+		{{{_sections.css}}}
+
+	</style>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-fixed-top">
+	<div class="container-fluid">
+	<!-- Toggler Button -->
+		<a href="/" class="navbar-brand">Enhanced Forum</a>
+		<button type="button" class="navbar-toggler"  data-toggle="collapse" data-target="#pageNavbar" aria-controls="pageNavbar" aria-expanded="false">
+			<span class="sr-only">Toggle Navigation</span>
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse" id="pageNavbar">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active dropdown">
+					<a href="/">Home</a>
+				</li>
+				<li class="nav-item active dropdown">
+					<a href="/settings">Settings</a>
+				</li>
+				<li class="nav-item active dropdown">
+				<a href="/list">List</a>
+				</li>
+				<li class="nav-item active dropdown">
+					<a href="/test">Test</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+
+<div id="main">
+	<div id="contents">
+		<div id ="pages container">
+			{{{body}}}
+		</div>
+	</div>
+</div>
+<!--
+			</div>
+		</div>
+	</div>
+</div>
+-->
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		{{{_sections.jcode}}}
+	</script>
+</body>
+</html>

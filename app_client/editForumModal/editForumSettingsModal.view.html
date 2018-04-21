@@ -1,0 +1,93 @@
+
+
+<div class="settingsContainer section">
+<!-- BEGIN CONTENT -->	
+	<div class="modal-header section-head">
+		Test Forum 1 Settings
+		<button type="button" ng-click="vm.modal.close()" class="close">Close</button>
+	</div>
+
+	<form class="form-horizontal modal-body" role="form" ng-submit="vm.onSubmit()">
+		<div>
+			<div class="section-head">
+				<span class="text-head">General</span>
+			</div>
+			<!-- Assignment Name -->
+			{{vm.formData}}
+			{{vm.data.formData.name}}
+			{{vm.data.settings.description}}
+			{{vm.data.settings.gradingMethod}}
+			{{vm.data.settings.peereval}}
+			{{vm.data.settings.points}}
+			{{vm.data.settings.reflection}}
+
+			<div class="form-group">
+				<label for="name" class="control-label col-sm-3" id="name-label">Assignment Name</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control col-5" id="name" aria-describedby="name-label" name="name"ng-model="vm.formData.name">
+				</div>
+			</div>
+
+			<!-- Task Description -->
+			<div class="form-group">
+				<label class="control-label col-sm-3" id="description-label" for="description">Task Description</label>
+				<div>
+					<textarea require class="form-control" id="description" aria-describedby="description-label" ng-model="vm.formData.description"></textarea>
+				</div>
+			</div>
+
+			<div class="section-head">
+				<span class="text-head">Grading</span>
+			</div>
+			<div class="form-group row">
+				<!-- Grade Method Selection -->
+				<label class="col-sm-3 control-label" id="grade-method-label" for="grade-method">Score Method</label>
+				<div class="col-sm-3">
+					<select class="custom-select form-control col-sm-3" id="grade-method" ng-model="vm.formData.gradingMethod">
+						<option value="1">Sum</option>
+						<option value="2">Average</option>
+							<!--OLD IDs <input class="form-control" id="grade-method" aria-describedby="grade-method-label"></input>-->
+					</select>
+				</div>
+			</div>
+			<!-- Grade Total -->
+			<div class="form-group row">
+				<label class="col-sm-3 control-label" id="total-points-label" for="total-points">Grade Total</label>
+				<div>
+					<input type="text" class="form-control" id="total-points" aria-describedby="total-points-label" ng-model="vm.formData.points">
+				</div>
+			</div>
+			
+			<div class="section-head">
+				<span class="text-head">Advanced Task</span>
+			</div>
+
+			<!-- Peer Grading Toggle -->
+			<div class="form-group">
+				<div class="col-sm-7 checkbox">
+					<label class="form-check-label" id="peer-grading-label">
+						<input type="checkbox" class="form-check-input" id="peer-grading" ng-checked=vm.formData.peereval ng-model="vm.formData.peereval"> Peer Evaluation
+					</label>
+				</div>
+			</div>
+
+			<!-- Reflective Task Toggle -->
+			<div class="form-group">
+				<div class="col-sm-7 checkbox">
+					<label class="form-check-label" id="reflection-toggle-label">
+						<input type="checkbox" ng-checked=vm.formData.reflection class="form-check-input" id="reflection-toggle" ng-model="vm.formData.reflection"> Reflective Task
+					</label>
+				</div>
+			</div>
+
+			
+
+			<div class="submission modal-footer">
+				<button type="submit" class="btn btn-default">Submit</button>
+				<a ng-click="vm.popupSettings()" class="btn btn-default">Reflection Settings</a>
+				<button type="button" ng-click="vm.modal.cancel()" class="btn btn-default">Cancel</button>
+			</div>
+		</div>
+	</form>
+<!-- END CONTENT -->
+</div>

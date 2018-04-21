@@ -1,0 +1,237 @@
+/* Home Page */	
+.topic {
+		background-color: orange;
+}
+body {
+	padding: 50px;
+	background-color: #4e7ac7
+}
+
+/* Navbar */
+nav {
+	color: white;
+}
+#pageNavbar {
+	float: right;
+}
+
+
+/* Post List */
+	.pl-post {
+		background: #ddddc2;
+		/* rgb(221, 221, 194)*/
+		min-height: 75px;
+		width: 500px;
+		margin-bottom: 5px;
+	}
+	.pl-image {
+		float: left;
+		background-color: red;
+	}
+	.pl-contents {
+		clear: right;
+		height: 50px;
+	}
+	.pl-title {
+		font-size: 25px
+	}
+	.pl-buttons {
+		float: right;
+		height: 25px;
+		clear: right;
+	}
+	.pl-replyButton {
+		float: right;
+		height:100%;
+		width: 60px;
+		text-align: center;
+		background-color: #8B86F5;
+		text-align: center;
+	}
+	.pl-deleteButton {
+		float: right;
+		height:100%;
+		background-color: #C77DFB;
+		width: 55px;
+		text-align: center;
+	}
+
+
+/* Posts Page */
+	/* Containers */
+	#pp-forumContainer {
+		width: 700px;
+		clear: both;
+	}
+	.pp-repliesContainer {
+		float: right;
+		width: 500px;
+	}
+
+	.pp-reply2 {
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		overflow: hidden;
+	}
+
+	/* Header CSS */
+	.pp-title {
+		width: 90%;
+		float: left;
+		padding-left: 5px;
+	}
+	.pp-title.pp-post {
+		font-size: 25px;
+		background-color: #f2594b;
+	}
+	.pp-title.pp-reply {
+		font-size: 15px;
+		background-color: #63a69f;
+	}
+	.pp-editButton {
+		width: 10%
+		float: right;
+		background-color: lightgrey;
+		text-align: center;
+	}
+	.pp-editButton.pp-post {
+		height: 38px;
+	}
+
+
+	/* Body CSS */
+	.pp-info {
+		float: left;
+		width: 20%;
+		padding: 5px;
+		text-align: center;
+	}
+	.pp-contentContainer {
+		clear:both;
+		background: rgb(221,221,194);
+		overflow: auto;
+	}
+	.pp-content {
+		float: right;
+		width: 80%;
+		padding: 10px;
+	}
+	.pp-content.pp-reply {
+		font-size: 12px;
+	}
+
+	/*This works on the post class but not on the contentContainer class - the problem was a need to clear the uneven edit button
+	Links for how this work:
+	https://stackoverflow.com/questions/637921/opacity-of-background-color-but-not-the-text
+	https://stackoverflow.com/questions/806000/how-do-i-give-text-or-an-image-a-transparent-background-using-css 
+	.post, .reply {
+		background: rgba(242,225,172,0.7);
+		**I kept the opacity of the brighter color I liked but used a darker background.
+	}
+	*/
+
+
+	/* Footer */
+	.pp-footer {
+		min-height: 24px;
+		margin-bottom: 15px;
+		background: rgb(221,221,194);
+		clear:both;
+	}
+	.pp-replyButton {
+		float: right;
+		width: 10%;
+		/*color: white;*/
+		text-align: center;
+		background-color: #8B86F5; 
+		/* Nice colors:
+			blue: #687FD8- too similar to background
+			blue: #35478C- too dark for black text, but good contrast
+			dark purple: #3C36A3- too dark for black text, but good contrast
+		*/
+	}
+	.pp-reflectButton {
+		float: right;
+		width: 15%;
+		background-color: grey;
+	}
+	.pp-reflection {
+		clear: both;
+		background: rgba(0,0,0,0.20);
+		padding: 10px;
+	}
+
+	.pp-reflectionChecklistContainer {
+		float: left;
+		width: 50%;
+	}
+	.pp-studentReflectionContainer {
+		float: right;
+		width: 50%;
+	}
+	.pp-checklistTitle, .pp-selfReflectionTitle, .pp-teacherFeedbackTitle {
+		background-color: #35478c;
+		/* nice colors 
+			3C36A3- purple
+		*/
+		color: white;
+		text-align: center;
+		clear:both;
+	}
+	#pp-forumContainerFooter {
+		clear: both;
+		min-height: 5px;
+	}
+
+/* Settings */
+.settingsContainer {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+label {
+	background-color: orange;
+}
+.section-head {
+	background-color: #343a40;
+	height: 30px;
+}
+.text-head {
+	color: white
+}
+.section {
+	background-color: #ddddc2;
+	overflow: hidden;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+.settings-modal .modal-dialog{
+  width:500px;
+  height:550px;
+  background-color: transparent;
+}
+
+.modal-header {
+  padding: 0px;
+  margin: 0px;
+  color: white;
+}
+
+.modal-content {
+	background-color: black;
+	height: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+.modal-body {
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+}
+
+.modal-footer {
+  padding: 0px;
+  margin: 0px;
+}
