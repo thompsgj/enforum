@@ -210,10 +210,54 @@ module.exports.viewThread = function(req, res) {
 	console.log("VIEW THREAD API END")
 }
 
+module.exports.deleteThread = function(req, res) {
+	console.log("API DELETE THREAD")
+	console.log("DELETE THREAD START")
+	console.log("DELETE THREAD REQ DATA", req.body.id)
+	ObjectID = require('mongodb').ObjectID
+	forumcoll.update({
+		"posts._id": ObjectID(req.body.id)
+	},{
+		$pull : {"posts": {"_id": ObjectID(req.body.id)}}
+	}).then(function(doc, err) {
+		console.log("DELETE THREAD RESPONSE", doc)
+		if(err) {
+			res.send("Problem");
+		} else {
+			sendJsonResponse(res, 201, doc);
+		}
+	})
+	console.log("DELETE THREAD END")
+}
 
 
+/*
+module.exports.viewThreadPost = function(req, res) {
+	console.log("API RETRIEVE THREAD MAIN POST")
+	ObjectID = require('mongodb').ObjectID
+	forumcoll.find({
+		"posts._id": ObjectID(req.body.threadid)
+	})
+}
+*/
+/*
+db.collection.update({
+	d : 2014001 , m :123456789
+}, {
+	$pull : { "topups.data" : {"val":NumberLong(200)} } 
+})
 
+"topups" : {
+    "data" : [
+            {
+                    "val" : NumberLong(200),
+                    "chId" : 2,
+                    "reqSys" : "222220005031",
+                    "old" : NumberLong(223),
+                    "isRb" : false
+            },
 
+*/
 
 
 

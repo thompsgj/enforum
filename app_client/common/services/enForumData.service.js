@@ -17,6 +17,11 @@
 			return $http.post('/api/forum/delete', data);
 		};
 
+		var deleteThread = function(data) {
+			console.log("DELETE THREAD ENFORUMDATA SERVICE", data)
+			return $http.post('/api/forum/thread/delete', data)
+		};
+
 		var postCreate = function(data) {
 			console.log("CREATE POST ENFORUMDATA SERVICE", data)
 			return $http.post('/api/post/create', data);
@@ -28,6 +33,12 @@
 			return $http.get('/api/forums/' + forumid);
 		};
 
+/*
+		var threadContentsById = function(threadid) {
+			console.log("THREAD LIST BY ID", threadid)
+			return $http.get('/api/forum/thread/' + threadid)
+		}
+*/
 		var updateForum = function(data) {
 			console.log("ENFORUM DATA SERVICE UPDATE DATA", data)
 			return $http.put('/api/forum/update/' + data.forumid, data)
@@ -50,6 +61,7 @@
 			createForum : createForum,
 			retrieveForumList : retrieveForumList,
 			deleteForum : deleteForum,
+			deleteThread : deleteThread,
 			postCreate : postCreate,
 			postListById : postListById,
 			updateForum : updateForum,

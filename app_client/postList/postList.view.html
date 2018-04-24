@@ -12,6 +12,7 @@
 		</div>
 	</div>
 	<a ng-click="vm.popupSettings()" class="btn btn-default">Add Post</a>
+	<button ng-click="vm.editPopupSettings(forum._id)">EDIT</button>
 </div>
 {{vm.data.settings}}
 <!-- START EXTRAS for testing -->
@@ -30,9 +31,9 @@
 			<span>Post Poster</span>
 		</div>
 		<div class="pl-buttons">
-			<div class="pl-deleteButton">
-				Delete
-			</div>
+			<button class="pl-deleteButton" ng-click="vm.deleteThread(post._id)">
+				DELETE
+			</button>
 		</div>
 	</div>
 </div>

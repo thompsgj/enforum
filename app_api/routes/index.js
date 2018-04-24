@@ -33,6 +33,7 @@ router.get('/forums/:forumid', ctrlForums.viewReadOne); //View One Forum's Posts
 router.post('/forum/delete', ctrlForums.deleteForum); //Delete a Forum
 router.put('/forum/update/:forumid', ctrlForums.updateForum);//Update a Forum's Settings
 router.get('/forum/:threadid/posts', ctrlForums.viewThread);//View List of Posts/Replies in a Thread
-
+router.post('/forum/thread/delete', ctrlForums.deleteThread);//Delete a Thread
+//router.get('/forum/thread/:threadid', ctrlForums.viewThreadPost)//View One Thread's Main Post
 
 module.exports = router;
