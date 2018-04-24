@@ -4,7 +4,8 @@
 			<!--Post Heading -->
 			<div class="pp-head pp-post">
 				<div class="pp-title pp-post">
-					{{content.posts.[0].title}}
+					{{vm.data.title}}
+					content.posts.[0].title
 				</div>
 				<div class="pp-editButton pp-post">
 					Edit
@@ -15,10 +16,10 @@
 			<div class="pp-contentContainer pp-post">
 				<div class="pp-info pp-post">
 					<img src="https://cdn1.iconfinder.com/data/icons/animals-18/154/cat-seat-skin-body-animal-512.png" width="100px" height="100px" /><br>
-					<span>{{content.posts.[0].poster}}</span>
+					<span>content.posts.[0].poster</span>
 				</div>
 				<div class="pp-content pp-post">
-					{{content.posts.[0].content}}
+					content.posts.[0].content
 				</div>
 			</div>
 
@@ -40,9 +41,9 @@
 						</div>
 						<div>
 							<ul class="pp-checklist">
-								<li>{{content.posts.[0].reflection.checklist.[0]}} <input type="checkbox" checked onclick="this.checked=!this.checked;"></li>
-								<li>{{content.posts.[0].reflection.checklist.[2]}} <input type="checkbox" checked onclick="this.checked=!this.checked;"></li>
-								<li>{{content.posts.[0].reflection.checklist.[4]}} <input type="checkbox" checked onclick="this.checked=!this.checked;"></li>
+								<li>content.posts.[0].reflection.checklist.[0] <input type="checkbox" checked onclick="this.checked=!this.checked;"></li>
+								<li>content.posts.[0].reflection.checklist.[2] <input type="checkbox" checked onclick="this.checked=!this.checked;"></li>
+								<li>content.posts.[0].reflection.checklist.[4] <input type="checkbox" checked onclick="this.checked=!this.checked;"></li>
 							</ul>
 						</div>
 					</div>
@@ -51,7 +52,7 @@
 							Self-reflection Summary
 						</div>
 						<div>
-							{{content.posts.[0].reflection.studentSummary}}
+							content.posts.[0].reflection.studentSummary
 						</div>
 					</div>
 					<div class="pp-teacherFeedbackContainer">
@@ -59,7 +60,7 @@
 							Teacher Feedback
 						</div>
 						<div class="pp-teacherFeedback">
-							{{content.posts.[0].reflection.teacherFeedback}}
+							content.posts.[0].reflection.teacherFeedback
 						</div>
 					</div>
 				</div>
@@ -71,7 +72,7 @@
 				<!-- Reply Heading -->
 				<div class="pp-head pp-reply">
 					<div class="pp-title pp-reply">
-						{{content.posts.[0].replies.[0].title}}
+						content.posts.[0].replies.[0].title
 					</div>
 					<div class="pp-editButton">
 						Edit
@@ -82,10 +83,10 @@
 				<div class="pp-contentContainer pp-reply">
 					<div class="pp-info pp-reply">
 						<img src="https://cdn1.iconfinder.com/data/icons/animals-18/154/cat-seat-skin-body-animal-512.png"/ width="100px" height="100px"><br>
-						<span>{{content.posts.[0].replies.[0].name}}</span>
+						<span>content.posts.[0].replies.[0].name</span>
 					</div>
 					<div class="pp-content pp-reply">
-						{{content.posts.[0].replies.[0].reply}}
+						content.posts.[0].replies.[0].reply
 					</div>
 				</div>
 
@@ -101,7 +102,7 @@
 				<!-- Reply Heading -->
 				<div class="pp-head pp-reply">
 					<div class="pp-title pp-reply">
-						{{content.posts.[0].replies.[1].title}}
+						content.posts.[0].replies.[1].title
 					</div>
 					<div class="pp-editButton pp-reply">Edit</div>
 				</div>
@@ -110,10 +111,10 @@
 				<div class="pp-contentContainer pp-reply">
 					<div class="pp-info pp-reply">
 						<img src="https://cdn1.iconfinder.com/data/icons/animals-18/154/cat-seat-skin-body-animal-512.png"/ width="100px" height="100px"><br>
-						<span>{{content.posts.[0].replies.[1].name}}</span>
+						<span>content.posts.[0].replies.[1].name</span>
 					</div>
 					<div class="pp-content pp-reply">
-						{{content.posts.[0].replies.[1].reply}}
+						content.posts.[0].replies.[1].reply
 					</div>
 				</div>
 

@@ -14,7 +14,7 @@
 				controller : 'listCtrl',
 				controllerAs : 'vm'
 			})
-			.when('/post', {
+			.when('/thread/:postid', {
 				templateUrl : '/postRetrieve/postRetrieve.view.html',
 				controller : 'retrieveCtrl',
 				controllerAs : 'vm'

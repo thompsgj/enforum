@@ -22,6 +22,7 @@
 			return $http.post('/api/post/create', data);
 		};
 
+		//Threads
 		var postListById = function(forumid) {
 			console.log("POST LIST BY ID", forumid)
 			return $http.get('/api/forums/' + forumid);
@@ -30,6 +31,12 @@
 		var updateForum = function(data) {
 			console.log("ENFORUM DATA SERVICE UPDATE DATA", data)
 			return $http.put('/api/forum/update/' + data.forumid, data)
+		}
+
+		//Posts
+		var retrievePostsById = function(threadid) {
+			console.log("POSTS AND REPLIES DATA SERVICE", threadid)
+			return $http.get('/api/forum/' + threadid + '/posts')
 		}
 
 /*
@@ -45,7 +52,8 @@
 			deleteForum : deleteForum,
 			postCreate : postCreate,
 			postListById : postListById,
-			updateForum : updateForum
+			updateForum : updateForum,
+			retrievePostsById : retrievePostsById
 		};
 	}
 })();

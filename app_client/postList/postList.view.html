@@ -22,7 +22,11 @@
 			<img src="https://cdn1.iconfinder.com/data/icons/animals-18/154/cat-seat-skin-body-animal-512.png" width="75px" height="75px" /><br>
 		</div>
 		<div class="pl-contents">
-			<span class="pl-title"><a href="/#post">{{post.title}}</a></span><br>
+			<span class="pl-title">
+				<a href="/#post">{{post.title}}</a>
+				<a href="/#/thread/{{post._id}}">{{post.title}}</a>
+				{{post._id}}
+			</span><br>
 			<span>Post Poster</span>
 		</div>
 		<div class="pl-buttons">

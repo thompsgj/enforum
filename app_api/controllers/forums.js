@@ -139,7 +139,8 @@ module.exports.updateForum = function(req, res) {
 module.exports.createPost = function(req, res) {
 	console.log("API CREATE POST", req.body)
 	//GOOD RESOURCE FOR OBJECTID: https://stackoverflow.com/questions/35050750/mongodb-creating-an-objectid-for-each-new-child-added-to-the-array-field?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
-	var ObjectID = require('mongodb').ObjectId;
+	//can't put 'var' in front of this variable
+	ObjectID = require('mongodb').ObjectID;
 	uploadData = {
 			posts: {
 				_id: new ObjectID(),
@@ -191,7 +192,23 @@ module.exports.createPost = function(req, res) {
 
 
 
-
+module.exports.viewThread = function(req, res) {
+	console.log("VIEW THREAD API START", req.params.threadid)
+	ObjectID = require('mongodb').ObjectID
+	forumcoll.find({
+		"posts._id" : ObjectID(req.params.threadid)
+	}, {
+		"posts.$" : 1
+	}).then(function(doc, err) {
+		if(err){
+			res.send("Problem");
+		} else {
+			console.log("API VIEW THREAD SUCCESS", doc)
+			sendJsonResponse(res, 201, doc);
+		}
+	})
+	console.log("VIEW THREAD API END")
+}
 
 
 
