@@ -14,6 +14,7 @@
 			.success(function(data) {
 				console.log("LIST CONTROL FUNCTION SUCCESS", data[0].settings)
 				vm.data = {
+					id : vm.forumid,
 					settings: data[0].settings,
 					posts: data[0].posts
 				};

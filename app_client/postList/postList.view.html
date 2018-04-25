@@ -5,6 +5,7 @@
 <h3>{{vm.data.settings.name}}</h3>
 	<div class="pl-contents">
 		<span>{{vm.data.settings.description}}</span>
+		{{vm.data.id}}
 	</div>
 	<div class="pl-buttons">
 		<div class="pl-deleteButton">
@@ -12,7 +13,7 @@
 		</div>
 	</div>
 	<a ng-click="vm.popupSettings()" class="btn btn-default">Add Post</a>
-	<button ng-click="vm.editPopupSettings(forum._id)">EDIT</button>
+	
 </div>
 {{vm.data.settings}}
 <!-- START EXTRAS for testing -->
@@ -31,6 +32,7 @@
 			<span>Post Poster</span>
 		</div>
 		<div class="pl-buttons">
+			<button ng-click="vm.editPopupSettings(post._id)">EDIT</button>
 			<button class="pl-deleteButton" ng-click="vm.deleteThread(post._id)">
 				DELETE
 			</button>

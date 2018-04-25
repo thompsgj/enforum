@@ -231,15 +231,44 @@ module.exports.deleteThread = function(req, res) {
 }
 
 
-/*
+
 module.exports.viewThreadPost = function(req, res) {
-	console.log("API RETRIEVE THREAD MAIN POST")
+	console.log("API RETRIEVE THREAD MAIN POST", req.params.threadid)
 	ObjectID = require('mongodb').ObjectID
 	forumcoll.find({
-		"posts._id": ObjectID(req.body.threadid)
+		"posts._id": ObjectID(req.params.threadid)
+	}, {
+		"posts.$" : 1
+	}).then(function(doc, err) {
+		console.log("VIEW THREAD API RESPONSE", doc)
+		if(err) {
+			res.send("Problem");
+		} else {
+			sendJsonResponse(res, 201, doc);
+		}
 	})
 }
-*/
+
+module.exports.updateThread = function(req, res) {
+	console.log("API UPDATE THREAD FUNCTION", req.body)
+	ObjectID = require('mongodb').ObjectID
+	forumcoll.update({
+		"posts._id": ObjectID(req.body.id)
+	},{
+		$set:{
+			"posts.$.title": req.body.title,
+			"posts.$.content": req.body.content
+		}
+	}).then(function(doc, err) {
+		if(err) {
+			res.send("Problem");
+		} else {
+			console.log("API UPDATE FORUM SUCCESS DOC", doc)
+			sendJsonResponse(res, 201, doc);
+		}
+	})
+}
+
 /*
 db.collection.update({
 	d : 2014001 , m :123456789
