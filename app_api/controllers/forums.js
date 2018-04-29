@@ -147,7 +147,8 @@ module.exports.createPost = function(req, res) {
 				title: req.body.title,
 				content: req.body.content,
 				beginPost : req.body.beginPost,
-				sendPost : req.body.sendPost
+				sendPost : req.body.sendPost,
+				wordCount : req.body.content.split(' ').length
 			}	
 		}
 	console.log("API CREATE POST UPLOAD DATA", uploadData)
@@ -251,13 +252,15 @@ module.exports.viewThreadPost = function(req, res) {
 
 module.exports.updateThread = function(req, res) {
 	console.log("API UPDATE THREAD FUNCTION", req.body)
+	console.log("CONTENT COUNT",req.body.content.split(' ').length)
 	ObjectID = require('mongodb').ObjectID
 	forumcoll.update({
 		"posts._id": ObjectID(req.body.id)
 	},{
 		$set:{
 			"posts.$.title": req.body.title,
-			"posts.$.content": req.body.content
+			"posts.$.content": req.body.content,
+			"posts.$.wordCount" : req.body.content.split(' ').length
 		}
 	}).then(function(doc, err) {
 		if(err) {
@@ -268,6 +271,16 @@ module.exports.updateThread = function(req, res) {
 		}
 	})
 }
+
+
+
+/* DB SUM AGGREGATION
+
+db.forumcollection.aggregate([{$project: {wordCount:{$sum: "$posts.wordCount"}}}])
+
+db.forumcollection.aggregate([{$project: {wordCount:{$avg: "$posts.wordCount"}}}])
+
+*/
 
 /*
 db.collection.update({
