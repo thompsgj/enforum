@@ -20,13 +20,16 @@
 				</div>
 				<div class="pp-content pp-post">
 					content.posts.[0].content
+					{{vm.data}}
 				</div>
 			</div>
 
 			<!--Reply Button -->
 			<div class="pp-footer pp-post">
 				<div class="pp-replyButton">
-					Reply
+					<button ng-click="vm.addReplyModal()">
+						Reply
+					<button>
 				</div>
 				<div class="pp-reflectButton">
 					Reflection
@@ -68,6 +71,9 @@
 		</div>
 
 		<div class="pp-repliesContainer">
+
+
+		STATIC REPLIES/////////////////////////////////////////////////
 			<div class="pp-reply">
 				<!-- Reply Heading -->
 				<div class="pp-head pp-reply">
@@ -93,7 +99,9 @@
 				<!-- Reply Button -->
 				<div class="pp-footer pp-reply">
 					<div class="pp-replyButton">
+						<button ng-click="vm.addReply(data.id)">
 						Reply
+						</button>
 					</div>
 				</div>
 			</div>
@@ -123,6 +131,40 @@
 					<div class="pp-replyButton">Reply</div>
 				</div>
 			</div>
+			/////////////////////////////DYNAMIC REPLIES
+
+			<div class="pp-reply" ng-repeat="reply in vm.data.replies">
+				<!-- Reply Heading -->
+				<div class="pp-head pp-reply">
+					<div class="pp-title pp-reply">
+						{{reply.title}}
+					</div>
+					<div class="pp-editButton">
+						Edit
+					</div>
+				</div>
+
+				<!-- Replier and Replier's Content -->
+				<div class="pp-contentContainer pp-reply">
+					<div class="pp-info pp-reply">
+						<img src="https://cdn1.iconfinder.com/data/icons/animals-18/154/cat-seat-skin-body-animal-512.png"/ width="100px" height="100px"><br>
+						<span>content.posts.[0].replies.[0].name</span>
+					</div>
+					<div class="pp-content pp-reply">
+						{{reply.content}}
+					</div>
+				</div>
+
+				<!-- Reply Button -->
+				<div class="pp-footer pp-reply">
+					<div class="pp-replyButton">
+						<button ng-click="vm.addReply(data.id)">
+						Reply
+						</button>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 

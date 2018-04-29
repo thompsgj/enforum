@@ -3,8 +3,8 @@
 		.module('enforumApp')
 		.controller('retrieveCtrl', retrieveCtrl);
 
-	retrieveCtrl.$inject = ['$routeParams', 'enForumData', '$scope'];
-	function retrieveCtrl ($routeParams, enForumData, $scope) {
+	retrieveCtrl.$inject = ['$uibModal','$routeParams', 'enForumData', '$scope','$route'];
+	function retrieveCtrl ($uibModal, $routeParams, enForumData, $scope,$route) {
 		console.log("RETRIEVE THREAD POSTS/REPLIES FUNCTION START")
 		var vm = this;
 
@@ -22,9 +22,14 @@
 			- Call service to get dataDONE
 			  * enforumService > index > forums.js > use the dataDONE
 			  * use uniqueID to call specific dataDONE
-			  * use returned data on page
+			  * use returned data on pageDONE
 			- Edit the service
 			- Add a reply
+			  * on button click, send id and open modal
+			  * modal allows for entering reply
+			  * on submit click, modal sends data to db
+			  * Submit > postRetrieve.controller > replyModal.controller >
+			    submit sends data (replyModal.controller) > enforumData > index.js > forums.js
 
 		*/
 
@@ -41,6 +46,22 @@
 			.error(function(e){
 				console.log("ERROR RETRIEVE POSTS FUNCTION")
 			})
+
+			vm.addReplyModal = function() {
+				console.log("CREATE REPLY SETTINGS START", vm.threadid)
+				var modalInstance = $uibModal.open({
+					templateUrl: '/replyModal/replyModal.view.html',
+					controller: 'replyModalCtrl as vm',
+					windowClass: 'settings-modal',
+					resolve: {
+						threadId: function() {return vm.threadid}
+					}
+				})
+				modalInstance.result.then(function(data) {
+					console.log("POPUP SETTING RESULT", data)
+					$route.reload();
+				})
+			}
 
 	}
 }) (); 

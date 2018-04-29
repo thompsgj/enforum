@@ -55,6 +55,12 @@
 			return $http.get('/api/forum/' + threadid + '/posts')
 		}
 
+		//Replies
+		var replyCreate = function(data) {
+			console.log("ENFORUM DATA SERVICE REPLY CREATE", data)
+			return $http.post('/api/reply/create', data)
+		}
+
 /*
 		var forumSettingsById = function(forumid) {
 			console.log("FORUM SETTINGS BY ID", forumid)
@@ -72,7 +78,8 @@
 			threadContentsById : threadContentsById,
 			updateForum : updateForum,
 			updateThread : updateThread,
-			retrievePostsById : retrievePostsById
+			retrievePostsById : retrievePostsById,
+			replyCreate : replyCreate
 		};
 	}
 })();

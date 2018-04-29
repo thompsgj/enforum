@@ -272,6 +272,30 @@ module.exports.updateThread = function(req, res) {
 	})
 }
 
+module.exports.createReply = function(req, res) {
+	console.log("API CREATE REPLY FUNCTION")
+	ObjectID = require('mongodb').ObjectID
+	forumcoll.update({
+		"posts._id": ObjectID(req.body.id)
+	},{
+		$push: {
+			"posts.$.replies": {
+				"_id": new ObjectID(),
+				"title": req.body.title,
+				"content": req.body.content,
+				"beginReply": req.body.beginReply,
+				"sendReply": req.body.sendReply
+			}
+		}
+	}).then(function(doc, err) {
+		if(err) {
+			res.send("Problem");
+		} else {
+			console.log("API UPDATE FORUM SUCCESS DOC", doc)
+			sendJsonResponse(res, 201, doc);
+		}
+	})
+}
 
 
 /* DB SUM AGGREGATION

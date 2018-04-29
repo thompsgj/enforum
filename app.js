@@ -54,7 +54,7 @@ var appClientFiles = [
 	'app_client/postList/postList.controller.js',
 	'app_client/postRetrieve/postRetrieve.controller.js',
 	'app_client/postModal/postModal.controller.js',
-	//'app_client/replyModal/replyModal.controller.js',
+	'app_client/replyModal/replyModal.controller.js',
 	'app_client/settingsModal/settingsModal.controller.js',
 	'app_client/editForumModal/editForumSettingsModal.controller.js',
 	'app_client/editThreadModal/editThreadSettingsModal.controller.js',
