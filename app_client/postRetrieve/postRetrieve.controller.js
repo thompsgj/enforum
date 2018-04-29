@@ -63,5 +63,24 @@
 				})
 			}
 
+			vm.deleteReply = function(replyid) {
+				console.log("DELETE REPLY", replyid)
+				vm.doDeleteReply(replyid)
+			}
+
+			vm.doDeleteReply = function(replyid) {
+				console.log("DO DELETE REPLY", replyid)
+				enForumData.deleteReply({
+					id: replyid
+				})
+				.success(function(data){
+					console.log("REPLY DELETE SUCCESS")
+					$route.reload();
+				})
+				.error(function(e){
+					console.log(e);
+				})
+			}
+
 	}
 }) (); 

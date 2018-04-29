@@ -37,5 +37,6 @@ router.post('/forum/thread/delete', ctrlForums.deleteThread);//Delete a Thread
 router.get('/forum/thread/:threadid', ctrlForums.viewThreadPost)//View One Thread's Main Post
 router.put('/forum/thread/update/:threadid', ctrlForums.updateThread)//Update a Thread
 router.post('/reply/create', ctrlForums.createReply); //Create a Reply
+router.post('/reply/delete', ctrlForums.deleteReply);//Delete a Reply
 
 module.exports = router;

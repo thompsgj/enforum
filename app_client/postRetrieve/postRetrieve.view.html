@@ -152,15 +152,20 @@
 					</div>
 					<div class="pp-content pp-reply">
 						{{reply.content}}
+						{{reply._id}}
 					</div>
 				</div>
 
 				<!-- Reply Button -->
 				<div class="pp-footer pp-reply">
+					<div class="pp-deleteButton">
+						<button ng-click="vm.deleteReply(reply._id)">DELETE</button>
+					</div>
 					<div class="pp-replyButton">
 						<button ng-click="vm.addReply(data.id)">
 						Reply
 						</button>
+
 					</div>
 				</div>
 			</div>

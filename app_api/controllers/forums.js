@@ -297,6 +297,24 @@ module.exports.createReply = function(req, res) {
 	})
 }
 
+module.exports.deleteReply = function(req, res) {
+	console.log("API DELETE REPLY", req.body)
+	ObjectID = require('mongodb').ObjectID
+	forumcoll.update({
+		"posts.replies._id": ObjectID(req.body.id)
+	},{
+		$pull : {"posts.$.replies": {"_id": ObjectID(req.body.id)}}
+	}).then(function(doc, err) {
+		console.log("DELETE THREAD RESPONSE", doc)
+		if(err) {
+			res.send("Problem");
+		} else {
+			sendJsonResponse(res, 201, doc);
+		}
+	})
+	console.log("DELETE THREAD END")
+}
+
 
 /* DB SUM AGGREGATION
 
