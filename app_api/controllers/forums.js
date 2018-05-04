@@ -4,6 +4,14 @@ var asynch = require('asynch');
 var db = monk('localhost:27017/enforum');
 var forumcoll = db.get('forumcollection');
 
+/*
+MongoClient.connect(url, function(err, client) {
+	assert.equal(null, err);
+	console.log("Connected successfully to server");
+	var db = client.db(dbName);
+	client.close();
+})
+*/
 
 var sendJsonResponse = function(res, status, content) {
 	res.status(status);
@@ -315,7 +323,95 @@ module.exports.deleteReply = function(req, res) {
 	console.log("DELETE THREAD END")
 }
 
+module.exports.updateReply = function(req, res) {
+	console.log("API UPDATE REPLY", req.body)
+	ObjectID = require('mongodb').ObjectID
 
+
+	//Need to revisit this setup for MongoDB
+	var MongoClient = require('mongodb').MongoClient;
+	MongoClient.connect("mongodb://localhost:27017").then(client => {
+		console.log("Connected correctly to server")
+		const db = client.db("enforum");
+		const collection = db.collection("forumcollection");
+
+		collection.update({
+		"posts.replies._id": ObjectID(req.body.id)
+	}, {
+		$set : {
+			"posts.$.replies.$[j]": {
+				"_id": ObjectID(req.body.id),
+				"title": req.body.title,
+				"content": req.body.content
+			}
+		}
+	}, {
+		arrayFilters: [
+			{"j._id": ObjectID(req.body.id)}
+		]
+	}).then(function(doc, err) {
+		console.log("UPDATE REPLY RESPONSE", doc)
+		if(err) {
+			console.log("REPLY FAIL")
+			res.send("Problem");
+		} else {
+			console.log("REPLY SUCCESS")
+			sendJsonResponse(res, 201, doc);
+		}
+	})
+	})
+
+	//May Need to Change Drivers: https://github.com/Automattic/mongoose/issues/5986
+	//http://thecodebarbarian.com/a-nodejs-perspective-on-mongodb-36-array-filters.html
+	/*
+	forumcoll.update({
+		"posts.replies._id": ObjectID(req.body.id)
+	}, {
+		$set : {
+			"posts.$.replies.$[j]": {
+				"_id": ObjectID(req.body.id),
+				"title": req.body.title,
+				"content": req.body.content
+			}
+		}
+	}, {
+		arrayFilters: [
+			{"j._id": ObjectID(req.body.id)}
+		]
+	}).then(function(doc, err) {
+		console.log("UPDATE REPLY RESPONSE", doc)
+		if(err) {
+			console.log("REPLY FAIL")
+			res.send("Problem");
+		} else {
+			console.log("REPLY SUCCESS")
+			sendJsonResponse(res, 201, doc);
+		}
+	})
+	*/
+}
+
+module.exports.retrieveReply = function(req, res){
+	console.log("VIEW REPLY API START", req.params.replyid)
+	ObjectID = require('mongodb').ObjectID
+	forumcoll.aggregate([{
+		"$match": {"posts.replies._id": ObjectID(req.params.replyid)}
+	}, {
+		"$unwind":"$posts"
+	}, {
+		"$unwind":"$posts.replies"
+	}, {
+		"$replaceRoot":{"newRoot":"$posts.replies"}
+	}
+	]).then(function(doc, err) {
+		if(err){
+			res.send("Problem");
+		} else {
+			console.log("API VIEW REPLY SUCCESS", doc)
+			sendJsonResponse(res, 201, doc);
+		}
+	})
+}
 /* DB SUM AGGREGATION
 
 db.forumcollection.aggregate([{$project: {wordCount:{$sum: "$posts.wordCount"}}}])

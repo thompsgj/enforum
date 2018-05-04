@@ -36,7 +36,9 @@ router.get('/forum/:threadid/posts', ctrlForums.viewThread);//View List of Posts
 router.post('/forum/thread/delete', ctrlForums.deleteThread);//Delete a Thread
 router.get('/forum/thread/:threadid', ctrlForums.viewThreadPost)//View One Thread's Main Post
 router.put('/forum/thread/update/:threadid', ctrlForums.updateThread)//Update a Thread
+router.get('/reply/:replyid', ctrlForums.retrieveReply);//View Reply Contents
 router.post('/reply/create', ctrlForums.createReply); //Create a Reply
 router.post('/reply/delete', ctrlForums.deleteReply);//Delete a Reply
+router.put('/reply/update/:replyid', ctrlForums.updateReply);//Update a Reply
 
 module.exports = router;

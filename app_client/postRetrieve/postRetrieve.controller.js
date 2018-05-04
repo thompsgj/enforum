@@ -82,5 +82,22 @@
 				})
 			}
 
+			vm.editReplyModal = function(data) {
+				console.log("EDIT REPLY SETTINGS START", data)
+				var modalInstance = $uibModal.open({
+					templateUrl: '/editReplyModal/editReplyModal.view.html',
+					controller: 'editReplyModalCtrl as vm',
+					windowClass: 'settings-modal',
+					resolve: {
+						replyId: function() {return data}
+					}
+				})
+				console.log("EDIT REPLY SETTINGS MIDDLE")
+				modalInstance.result.then(function(data) {
+					console.log("POPUP SETTING RESULT", data)
+					$route.reload();
+				})
+			}
+
 	}
 }) (); 

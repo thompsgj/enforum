@@ -139,9 +139,9 @@
 					<div class="pp-title pp-reply">
 						{{reply.title}}
 					</div>
-					<div class="pp-editButton">
+					<button class="pp-editButton" ng-click="vm.editReplyModal(reply._id)">
 						Edit
-					</div>
+					</button>
 				</div>
 
 				<!-- Replier and Replier's Content -->
@@ -165,7 +165,6 @@
 						<button ng-click="vm.addReply(data.id)">
 						Reply
 						</button>
-
 					</div>
 				</div>
 			</div>

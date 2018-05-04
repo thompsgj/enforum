@@ -58,6 +58,7 @@ var appClientFiles = [
 	'app_client/settingsModal/settingsModal.controller.js',
 	'app_client/editForumModal/editForumSettingsModal.controller.js',
 	'app_client/editThreadModal/editThreadSettingsModal.controller.js',
+	'app_client/editReplyModal/editReplyModal.controller.js',
 	'app_client/reflectionSettingsModal/reflectionSettingsModal.controller.js',
 	'app_client/common/directives/navigation/navigation.directive.js',
 	'app_client/common/services/enForumData.service.js'

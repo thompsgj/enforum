@@ -66,6 +66,16 @@
 			return $http.post('/api/reply/delete', replyid)
 		}
 
+		var updateReply = function(data) {
+			console.log("ENFORUM DATA SERVICE UPDATE REPLY", data.id)
+			return $http.put('/api/reply/update/' + data.id, data)	
+		}
+
+		var retrieveReply = function(replyid) {
+			console.log("ENFORUM DATA SERVICE RETRIEVE REPLY", replyid)
+			return $http.get('/api/reply/' + replyid)
+		}
+
 /*
 		var forumSettingsById = function(forumid) {
 			console.log("FORUM SETTINGS BY ID", forumid)
@@ -85,7 +95,9 @@
 			updateThread : updateThread,
 			retrievePostsById : retrievePostsById,
 			replyCreate : replyCreate,
-			deleteReply : deleteReply
+			deleteReply : deleteReply,
+			updateReply : updateReply,
+			retrieveReply: retrieveReply
 		};
 	}
 })();
