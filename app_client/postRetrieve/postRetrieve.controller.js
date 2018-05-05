@@ -102,7 +102,7 @@
 				})
 			}
 
-			$scope.gradePossibilities = [1, 2, 3];
+			$scope.gradePossibilities = ["", 1, 2, 3];
 			//vm.selectedGrade;
 			$scope.selectedGradeChange = function(data) {
 				//$scope.calculatedValue = vm.selectedGrade
