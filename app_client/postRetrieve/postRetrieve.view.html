@@ -21,7 +21,9 @@
 				<div class="pp-content pp-post">
 					{{vm.data.grade}}
 					AAAAAAAAAAAAAAAAA
-					{{vm.data.id}}
+					{{vm.data.id}}<br>
+					{{vm.data.title}}<br>
+					{{vm.data.content}}<br>
 					{{vm.data}}
 						<div class="col-sm-3">
 							<select ng-options="value for value in gradePossibilities" ng-model="vm.selectedGrade" ng-change="selectedGradeChange(vm.data.id, 'post')">
