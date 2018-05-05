@@ -412,6 +412,51 @@ module.exports.retrieveReply = function(req, res){
 		}
 	})
 }
+
+module.exports.setGrade = function(req, res) {
+	console.log("SET GRADE API START", req.body)
+
+	//Need to revisit this setup for MongoDB
+	var MongoClient = require('mongodb').MongoClient;
+	MongoClient.connect("mongodb://localhost:27017").then(client => {
+		console.log("Connected correctly to server")
+		const db = client.db("enforum");
+		const collection = db.collection("forumcollection");
+
+		collection.update({
+		"posts.replies._id": ObjectID(req.body.id)
+	}, {
+		/*
+		"$set" : {
+			"posts.$.replies.$[j]": {
+				"_id": ObjectID(req.body.id),
+				"grade": req.body.grade
+			}
+		}
+		*/
+		"$set" : {
+				"posts.$.replies.$[j].grade": req.body.grade
+		}
+
+
+	}, {
+		arrayFilters: [
+			{"j._id": ObjectID(req.body.id)}
+		]
+	}).then(function(doc, err) {
+		console.log("UPDATE REPLY RESPONSE", doc)
+		if(err) {
+			console.log("REPLY FAIL")
+			res.send("Problem");
+		} else {
+			console.log("REPLY SUCCESS")
+			sendJsonResponse(res, 201, doc);
+		}
+	})
+	})
+
+	////////////////////
+}
 /* DB SUM AGGREGATION
 
 db.forumcollection.aggregate([{$project: {wordCount:{$sum: "$posts.wordCount"}}}])

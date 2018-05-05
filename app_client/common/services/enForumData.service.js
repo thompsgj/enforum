@@ -76,6 +76,11 @@
 			return $http.get('/api/reply/' + replyid)
 		}
 
+		var setGrade = function(data) {
+			console.log("ENFORUM DATA SERVICE SET GRADE", data)
+			return $http.post('/api/grade', data)
+		}
+
 /*
 		var forumSettingsById = function(forumid) {
 			console.log("FORUM SETTINGS BY ID", forumid)
@@ -97,7 +102,8 @@
 			replyCreate : replyCreate,
 			deleteReply : deleteReply,
 			updateReply : updateReply,
-			retrieveReply: retrieveReply
+			retrieveReply : retrieveReply,
+			setGrade : setGrade
 		};
 	}
 })();

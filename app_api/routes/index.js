@@ -40,5 +40,8 @@ router.get('/reply/:replyid', ctrlForums.retrieveReply);//View Reply Contents
 router.post('/reply/create', ctrlForums.createReply); //Create a Reply
 router.post('/reply/delete', ctrlForums.deleteReply);//Delete a Reply
 router.put('/reply/update/:replyid', ctrlForums.updateReply);//Update a Reply
+router.post('/grade', ctrlForums.setGrade)//Set Grade
+
+
 
 module.exports = router;

@@ -3,8 +3,8 @@
 		.module('enforumApp')
 		.controller('retrieveCtrl', retrieveCtrl);
 
-	retrieveCtrl.$inject = ['$uibModal','$routeParams', 'enForumData', '$scope','$route'];
-	function retrieveCtrl ($uibModal, $routeParams, enForumData, $scope,$route) {
+	retrieveCtrl.$inject = ['$uibModal','$routeParams', 'enForumData', '$scope', '$route'];
+	function retrieveCtrl ($uibModal, $routeParams, enForumData, $scope, $route) {
 		console.log("RETRIEVE THREAD POSTS/REPLIES FUNCTION START")
 		var vm = this;
 
@@ -30,6 +30,9 @@
 			  * on submit click, modal sends data to db
 			  * Submit > postRetrieve.controller > replyModal.controller >
 			    submit sends data (replyModal.controller) > enforumData > index.js > forums.js
+
+				Use of NG-change to send value automatically
+			    https://stackoverflow.com/questions/25797915/how-to-call-angularjs-function-from-select-option
 
 		*/
 
@@ -97,6 +100,21 @@
 					console.log("POPUP SETTING RESULT", data)
 					$route.reload();
 				})
+			}
+
+			$scope.gradePossibilities = [1, 2, 3];
+			//vm.selectedGrade;
+			$scope.selectedGradeChange = function(data) {
+				//$scope.calculatedValue = vm.selectedGrade
+
+
+				enForumData.setGrade({
+					id: data,
+					grade: vm.selectedGrade
+				})
+
+				console.log("Data " + data)
+				console.log("The value is " +  vm.selectedGrade)
 			}
 
 	}
