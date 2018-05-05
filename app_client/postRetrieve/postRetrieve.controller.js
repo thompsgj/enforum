@@ -43,6 +43,7 @@
 				vm.data = {
 					id : data[0].posts[0]._id,
 					title: data[0].posts[0].title,
+					grade: data[0].posts[0].grade,
 					replies: data[0].posts[0].replies
 				}
 			})
@@ -104,11 +105,12 @@
 
 			$scope.gradePossibilities = ["", 1, 2, 3];
 			//vm.selectedGrade;
-			$scope.selectedGradeChange = function(data) {
+			$scope.selectedGradeChange = function(data, type) {
 				//$scope.calculatedValue = vm.selectedGrade
-
+				console.log("TYPE",type)
 
 				enForumData.setGrade({
+					type: type,
 					id: data,
 					grade: vm.selectedGrade
 				})

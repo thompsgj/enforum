@@ -19,8 +19,16 @@
 					<span>content.posts.[0].poster</span>
 				</div>
 				<div class="pp-content pp-post">
-					content.posts.[0].content
+					{{vm.data.grade}}
+					AAAAAAAAAAAAAAAAA
+					{{vm.data.id}}
 					{{vm.data}}
+						<div class="col-sm-3">
+							<select ng-options="value for value in gradePossibilities" ng-model="vm.selectedGrade" ng-change="selectedGradeChange(vm.data.id, 'post')">
+								<option value="">{{vm.data.grade}}</option>
+							</select>
+						</div>
+
 				</div>
 			</div>
 
@@ -161,7 +169,7 @@
 						<!-- Assign Grade -->
 						<label class="col-sm-3 control-label" id="grade-method-label" for="grade-method">Grade</label>
 						<div class="col-sm-3">
-							<select ng-options="value for value in gradePossibilities" ng-model="vm.selectedGrade" selected="3" ng-change="selectedGradeChange(reply._id)">
+							<select ng-options="value for value in gradePossibilities" ng-model="vm.selectedGrade" ng-change="selectedGradeChange(reply._id, 'reply')">
 								<option value="">{{reply.grade}}</option>
 							</select>
 						</div>
