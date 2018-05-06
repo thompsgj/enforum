@@ -3,9 +3,36 @@
 		.module('enforumApp')
 		.controller('settingsModalCtrl', settingsModalCtrl);
 
-	settingsModalCtrl.$inject = ['$uibModalInstance', 'enForumData'];
-	function settingsModalCtrl ( $uibModalInstance, enForumData) {
+	settingsModalCtrl.$inject = ['$uibModalInstance', 'enForumData', '$scope'];
+	function settingsModalCtrl ( $uibModalInstance, enForumData, $scope) {
 		var vm = this;
+
+
+		//{id: 'choice1', name:'choice1'},{id:'choice2', name:'choice2'}
+		vm.checklist = []
+
+
+		vm.addNewChoice = function() {
+			console.log("ADD NEW CHOICE")
+			console.log("CHECKLIST", vm.checklist)
+			console.log("CHECKLIST NUMBER", vm.checklist.length)
+			var newChecklistItem = vm.checklist.length+1;
+			vm.checklist.push({'id' : 'choice' + newChecklistItem, 'name' : 'choice' + newChecklistItem});
+
+		}
+
+		vm.removeChoice = function() {
+			var newChecklistItem = vm.checklist.length-1;
+			if ( newChecklistItem !== 0 ) {
+				vm.checklist.pop();
+			}
+		}
+
+
+		vm.showAddChoice = function(choice) {
+			return choice.id === vm.checklist[vm.checklist.length -1].id;
+		}
+
 
 		//Validation Check on Variables
 		vm.onSubmit = function () {
@@ -27,7 +54,8 @@
 				gradingMethod : formData.gradingMethod ,
 				points : formData.gradeTotal ,
 				peereval : formData.peerEvalToggle ,
-				reflection : formData.reflectionToggle
+				reflection : formData.reflectionToggle,
+				reflectionChecklist : vm.checklist
 			})
 			.success(function(data){
 				console.log("DO CREATE FORUM", data)
@@ -38,6 +66,8 @@
 				vm.formError = "Your forum has not been saved.  Please try again.";
 			});
 		}
+
+
 
 
 		vm.modal = {

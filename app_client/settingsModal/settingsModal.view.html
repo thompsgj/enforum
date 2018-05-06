@@ -73,6 +73,17 @@
 				</div>
 			</div>
 
+
+			<!-- Reflection Checklist -->
+			<div class="form-group">
+				<div class="col-sm-7">
+					<label for="checklistItem" >Checklist Items</label>
+					<div ng-click="vm.addNewChoice()">Add Criteria</div>
+					<div ng-click="vm.removeChoice()">Remove Criteria</div>
+					<input ng-repeat="item in vm.checklist" class="checklistItem form-control" type="text" ng-modal="{{item.name}}" name="" placeholder="Enter a criteria" value="{{item.id}}">
+				</div>
+			</div>
+
 			
 
 			<div class="submission modal-footer">
@@ -83,4 +94,18 @@
 		</div>
 	</form>
 <!-- END CONTENT -->
+
+<br><br><br>
+<!--
+ng-show="showAddChoice(choice)"
+ng-show="showChoiceLabel(item)"
+
+				<div class="col-sm-7">
+					<button ng-click="vm.addNewChoice()">Add Criteria</button>
+					<button ng-click="vm.removeChoice()">Remove Criteria</button>
+					<label for="checklistItem" >Checklist Items</label>
+					<input ng-repeat="item in vm.checklist" class="checklistItem form-control" type="text" ng-modal="{{item.name}}" name="" placeholder="Enter a criteria" value="{{item.id}}">
+				</div>
+-->
+
 </div>

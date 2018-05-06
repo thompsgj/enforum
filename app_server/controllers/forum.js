@@ -16,7 +16,10 @@ var postData = {
 		points: 10,
 		gradingMethod: "Sum",
 		tutorial: "on",
-		reflection: "on"
+		reflection: "on",
+		reflectionTemplate: {
+			checklist: ["Topic Sentence Present", "3 Support Sentences"]
+		}
 	},
 	posts: [
 		{

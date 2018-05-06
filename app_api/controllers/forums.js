@@ -25,7 +25,7 @@ module.exports.createForum = function(req,res) {
 */
 
 module.exports.createForum = function(req, res) {
-	console.log("API CREATE FORUM")
+	console.log("API CREATE FORUM", req.body)
 	forumcoll.insert({
 		settings: {
 			name: req.body.name ,
@@ -39,7 +39,8 @@ module.exports.createForum = function(req, res) {
 			gradingMethod: req.body.gradingMethod ,
 			points: req.body.points ,
 			peereval: req.body.peereval ,
-			reflection: req.body.reflection 
+			reflection: req.body.reflection,
+			reflectionChecklist: req.body.reflectionChecklist
 		}
 	}).then(function(doc, err) {
 		if(err) {
