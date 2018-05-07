@@ -17,22 +17,30 @@
 			console.log("CHECKLIST", vm.checklist)
 			console.log("CHECKLIST NUMBER", vm.checklist.length)
 			var newChecklistItem = vm.checklist.length+1;
-			vm.checklist.push({'id' : 'choice' + newChecklistItem, 'name' : 'choice' + newChecklistItem});
+			vm.checklist.push({ 'criteria' : ''});
 
 		}
 
 		vm.removeChoice = function() {
 			var newChecklistItem = vm.checklist.length-1;
-			if ( newChecklistItem !== 0 ) {
-				vm.checklist.pop();
+			if ( newChecklistItem !== -1 ) {
+				vm.checklist.pop('');
 			}
 		}
 
 
+/*
 		vm.showAddChoice = function(choice) {
 			return choice.id === vm.checklist[vm.checklist.length -1].id;
 		}
 
+		vm.updateChecklist = function(id, criteria) {
+			console.log("ID", id)
+			console.log("Criteria", criteria)
+			 vm.checklist[v.id] = v.criteria;
+			 console.log("CHECKLIST UPDATE", vm.checklist)
+		}
+*/
 
 		//Validation Check on Variables
 		vm.onSubmit = function () {
@@ -48,6 +56,7 @@
 
 		//Call Create Forum Function
 		vm.doCreateForum = function (formData) {
+			console.log("FORMDATA", vm.formData)
 			enForumData.createForum({
 				name : formData.name ,
 				description : formData.description ,
