@@ -19,6 +19,27 @@
 - Send DataDONE
    * change credit forum to edit forum
 */
+
+		vm.checklist = []
+
+
+		vm.addNewChoice = function() {
+			console.log("ADD NEW CHOICE")
+			console.log("CHECKLIST", vm.checklist)
+			console.log("CHECKLIST NUMBER", vm.checklist.length)
+			var newChecklistItem = vm.checklist.length+1;
+			vm.checklist.push({ 'criteria' : ''});
+
+		}
+
+		vm.removeChoice = function() {
+			var newChecklistItem = vm.checklist.length-1;
+			if ( newChecklistItem !== -1 ) {
+				vm.checklist.pop('');
+			}
+		}
+
+
 		console.log("EDIT SETTINGS CTRL", editId)
 
 		enForumData.postListById(editId)
@@ -26,7 +47,7 @@
 			console.log("EDIT SETTINGS MODAL VIEW SUCCESS", data[0])
 			viewData = data[0].settings;
 			vm.formData = viewData;
-			console.log("DATA", vm.data)
+			console.log("DATA", vm.formData)
 		})
 		.error(function(e) {
 			console.log("EDIT SETTINGS MODAL VIEW ERROR", e)
@@ -47,15 +68,16 @@
 
 		//Call Create Forum Function
 		vm.doUpdateForum = function (formData) {
-			console.log("DO UPDATE SETTINGS")
+			console.log("DO UPDATE SETTINGS", formData)
 			enForumData.updateForum({
 				forumid: editId,
-				name : formData.name ,
-				description : formData.description ,
-				gradingMethod : formData.gradingMethod ,
-				points : formData.gradeTotal ,
-				peereval : formData.peerEvalToggle ,
-				reflection : formData.reflectionToggle
+				name : formData.name,
+				description : formData.description,
+				gradingMethod : formData.gradingMethod,
+				points : formData.points,
+				peereval : formData.peereval,
+				reflection : formData.reflection,
+				reflectionChecklist : formData.reflectionChecklist
 			})
 			.success(function(data){
 				console.log("DO UPDATE SETTINGS FORUM", data)

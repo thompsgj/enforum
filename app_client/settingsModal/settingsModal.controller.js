@@ -28,20 +28,6 @@
 			}
 		}
 
-
-/*
-		vm.showAddChoice = function(choice) {
-			return choice.id === vm.checklist[vm.checklist.length -1].id;
-		}
-
-		vm.updateChecklist = function(id, criteria) {
-			console.log("ID", id)
-			console.log("Criteria", criteria)
-			 vm.checklist[v.id] = v.criteria;
-			 console.log("CHECKLIST UPDATE", vm.checklist)
-		}
-*/
-
 		//Validation Check on Variables
 		vm.onSubmit = function () {
 			console.log("SETTINGS MODAL CONTROL", vm.formData)

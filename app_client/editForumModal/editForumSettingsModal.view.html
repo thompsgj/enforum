@@ -80,6 +80,16 @@
 				</div>
 			</div>
 
+
+			<!-- Reflection Checklist -->
+			<div class="form-group">
+				<div class="col-sm-7">
+					<label for="checklistItem">Checklist Items</label>
+					<div ng-click="vm.addNewChoice()">Add Criteria</div>
+					<div ng-click="vm.removeChoice()">Remove Criteria</div>
+					<input type="text" ng-repeat="item in vm.formData.reflectionChecklist track by $index" class="checklistItem form-control" type="text" name="" placeholder="Enter a criteria" ng-model="item.criteria">
+				</div>
+			</div>
 			
 
 			<div class="submission modal-footer">

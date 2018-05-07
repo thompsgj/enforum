@@ -108,17 +108,18 @@ module.exports.updateForum = function(req, res) {
 		$set:{
 			settings: {
 				name: req.body.name ,
-				description: req.body.description ,
+				description: req.body.description,
 				/*
 				dateRestrictions: {
 					dateOpen: req.body. ,
 					dateClosed: req.body. 
 				},
 				*/
-				gradingMethod: req.body.gradingMethod ,
-				points: req.body.points ,
-				peereval: req.body.peereval ,
-				reflection: req.body.reflection 
+				gradingMethod: req.body.gradingMethod,
+				points: req.body.points,
+				peereval: req.body.peereval,
+				reflection: req.body.reflection,
+				reflectionChecklist : req.body.reflectionChecklist
 			}
 		}
 
